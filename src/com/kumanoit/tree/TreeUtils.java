@@ -82,6 +82,10 @@ public class TreeUtils {
 		System.out.print(root.val + ", ");
 	}
 
+	/**
+	 * This function will print level order traversal of a tree
+	 * @param root
+	 */
 	public static void printLevelOrder(TreeNode root) {
 		if (root == null) {
 			return;
@@ -98,5 +102,17 @@ public class TreeUtils {
 				queue.add(node.right);
 			}
 		}
+	}
+
+	public static void printTree(TreeNode root) {
+		System.out.print("\nPreorder   : ");
+		preorder(root);
+		System.out.print("\nInorder    : ");
+		inorder(root);
+		System.out.print("\nPostorder  : ");
+		postorder(root);
+		System.out.print("\nLevel order: ");
+		printLevelOrder(root);
+		System.out.println();
 	}
 }
