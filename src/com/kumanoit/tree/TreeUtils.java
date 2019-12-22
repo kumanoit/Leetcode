@@ -1,6 +1,8 @@
 package com.kumanoit.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeUtils {
@@ -87,6 +89,7 @@ public class TreeUtils {
 
 	/**
 	 * This function will print level order traversal of a tree
+	 * 
 	 * @param root
 	 */
 	public static void printLevelOrder(TreeNode root) {
@@ -117,5 +120,30 @@ public class TreeUtils {
 		System.out.print("\nLevel order: ");
 		printLevelOrder(root);
 		System.out.println();
+	}
+
+	public static NaryTreeNode createNaryTreeNode(final Integer[] array) {
+		if (array.length == 0) {
+			return null;
+		}
+		NaryTreeNode root = new NaryTreeNode(array[0]);
+		Queue<NaryTreeNode> queue = new LinkedList<NaryTreeNode>();
+		queue.add(root);
+		int i = 2;
+		while (i < array.length) {
+			NaryTreeNode ptr = queue.remove();
+			List<NaryTreeNode> children = new ArrayList<NaryTreeNode>();
+			while (i < array.length && array[i] != null) {
+				NaryTreeNode child = new NaryTreeNode(array[i]);
+				queue.add(child);
+				children.add(child);
+				i++;
+			}
+			if (!children.isEmpty()) {
+				ptr.children = children;
+			}
+			i++;
+		}
+		return root;
 	}
 }
