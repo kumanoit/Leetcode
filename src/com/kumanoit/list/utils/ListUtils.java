@@ -29,12 +29,14 @@ public class ListUtils {
 	 */
 	public static void printList(final ListNode head) {
 		if (head == null) {
+			System.out.println("Your linked list is empty.");
 			return;
 		}
 		ListNode ptr = head;
 		while (ptr != null) {
-			System.out.print(head.val + ", ");
+			System.out.print(ptr.val + ", ");
 			ptr = ptr.next;
 		}
+		System.out.println();
 	}
 }

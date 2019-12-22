@@ -21,6 +21,9 @@ public class TreeUtils {
 		int i = 1;
 		while (i < array.length) {
 			TreeNode node = queue.remove();
+			if (node == null) {
+				continue;
+			}
 			if (array[i] != null) {
 				node.left = new TreeNode(array[i]);
 				queue.add(node.left);
@@ -29,7 +32,7 @@ public class TreeUtils {
 			}
 			i++;
 
-			if (array[i] != null) {
+			if (i < array.length && array[i] != null) {
 				node.right = new TreeNode(array[i]);
 				queue.add(node.right);
 			} else {
