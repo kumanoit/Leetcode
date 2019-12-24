@@ -9,7 +9,7 @@ package com.kumanoit.tree;
  *         so 1 step will be needed to get one coin. Also pass information about 
  *         coins needed upwards to parent node.
  *     1b) if total == 1; 
- *         then it means no coin is needed and no moves is required
+ *         then it means no coin is needed and no moves is required; return 0 to parent
  *     1c) if total > 1: 
  *         It means that total - 1 coins needs to be moved for which (total - 1)
  *         moves will be needed.
