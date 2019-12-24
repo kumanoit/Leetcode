@@ -108,6 +108,7 @@ public class TreeUtils {
 				queue.add(node.right);
 			}
 		}
+		System.out.println();
 	}
 
 	public static void printTree(TreeNode root) {
