@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode.com/problems/delete-nodes-and-return-forest/
+ * 
  * Do a recrusive traversal in bottom-up manner and see if the current node has
  * to be deleted. If this node has to be deleted then return false so that the
  * parent node knows that this node has be removed from its child list.
