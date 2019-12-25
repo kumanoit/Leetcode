@@ -17,12 +17,16 @@ public class AverageOfLevelsInBinaryTree {
 
 	public static void main(String[] args) {
 		test(new Integer[] { 1, null, 3, 2, 4, null, 5, 6 });
+		test(new Integer[] { 2147483647, 2147483647, 2147483647 });
 	}
 
 	private static void test(final Integer[] nums) {
 		TreeNode root = TreeUtils.createTree(nums);
+		System.out.println("Method 1");
 		averageOfLevels(root).forEach(item -> System.out.println(item + ", "));
+		System.out.println("Method 2");
 		averageOfLevels2(root).forEach(item -> System.out.println(item + ", "));
+		System.out.println();
 	}
 
 	/**
@@ -110,6 +114,6 @@ class Pair {
 	}
 
 	public double getAverage() {
-		return (double) total / count;
+		return total / count;
 	}
 }
