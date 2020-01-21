@@ -1,4 +1,4 @@
-package com.kumanoit.Strings;
+package com.kumanoit.strings;
 
 /**
  * https://leetcode.com/problems/string-to-integer-atoi/

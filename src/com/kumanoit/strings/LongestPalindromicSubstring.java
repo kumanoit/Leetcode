@@ -1,4 +1,4 @@
-package com.kumanoit.Strings;
+package com.kumanoit.strings;
 
 /**
  * https://leetcode.com/problems/longest-palindromic-substring/

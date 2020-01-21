@@ -1,4 +1,4 @@
-package com.kumanoit.Strings;
+package com.kumanoit.strings;
 
 import java.util.ArrayList;
 import java.util.HashMap;

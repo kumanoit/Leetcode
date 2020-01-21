@@ -3,6 +3,8 @@ package com.kumanoit.graphs;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kumanoit.utils.Pair;
+
 /**
  * https://leetcode.com/problems/word-search/
  * 
@@ -109,24 +111,5 @@ public class WordSearch {
 			}
 		}
 		return neighbours;
-	}
-}
-
-class Pair {
-	int x;
-	int y;
-
-	Pair(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	@Override
-	public boolean equals(Object object) {
-		if (!(object instanceof Pair)) {
-			return false;
-		}
-		Pair pair = (Pair) object;
-		return this.x == pair.x && this.y == pair.y;
 	}
 }
