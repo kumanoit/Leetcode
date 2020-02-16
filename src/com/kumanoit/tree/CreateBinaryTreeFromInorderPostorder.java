@@ -15,7 +15,8 @@ import java.util.Map;
  * Space: O(1) no extra space is taken
  * 
  * Optimized Solution: Instead of iterating over inorder array to find index of
- * root value, create a hashmap and find out the index of root value. 
+ * root value, create a hashmap and find out the index of root value.
+ * Complexity:
  * Time: O(n) hashmap reduced iteration to find index in inorder array 
  * Space: O(n) space taken by hashmap
  * 
@@ -32,16 +33,12 @@ public class CreateBinaryTreeFromInorderPostorder {
 	}
 
 	private static void test(final Integer[] inorder, final Integer[] postorder) {
-		TreeUtils.printTree(buildTree(inorder, postorder));
+		TreeUtils.printTree(createTree(inorder, postorder, 0, 0, inorder.length));
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int i = 0; i < inorder.length; i++) {
 			map.put(inorder[i], i);
 		}
 		TreeUtils.printTree(createTreeOptimized(inorder, postorder, 0, 0, inorder.length, map));
-	}
-
-	private static TreeNode buildTree(Integer[] inorder, Integer[] postorder) {
-		return createTree(inorder, postorder, 0, 0, inorder.length);
 	}
 
 	private static TreeNode createTree(Integer[] inorder, Integer[] postorder, int inStart,
