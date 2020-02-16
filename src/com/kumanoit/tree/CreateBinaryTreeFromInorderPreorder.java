@@ -12,7 +12,7 @@ import java.util.Map;
  * subtree. Based on that index create left and right subtree. 
  * Complexity: 
  * Time: O(n^2) for each node there is iteration to find index in inorder array 
- * Space: O(1) no extra space is taken
+ * Space: Stack size = O(height) = O(lg(n))
  * 
  * Optimized Solution: Instead of iterating over inorder array to find index of
  * root value, create a hashmap and find out the index of root value.
