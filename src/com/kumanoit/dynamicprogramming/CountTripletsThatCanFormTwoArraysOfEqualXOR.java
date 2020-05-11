@@ -25,6 +25,9 @@ package com.kumanoit.dynamicprogramming;
  * when prefix[0...i-1] ^ prefix[0....k] == suffix[k + 1] ^ suffix[j + 1]
  * increment counter
  * 
+ * 
+ * Best Optimization DP;
+ * Create only one prefix array and use it.
  * @author kumanoit May 11, 2020 7:28:29 PM
  *
  */
@@ -42,8 +45,45 @@ public class CountTripletsThatCanFormTwoArraysOfEqualXOR {
 	}
 
 	private static void test(final int[] array) {
-		System.out.println("Count DP = " + countTripletsDP(array));
+		System.out.println("\nCount DP = " + countTripletsDP(array));
 		System.out.println("Count optimized DP = " + countTripletOptimized(array));
+		System.out.println("Best optimized DP = " + countTripletDPOptimized(array));
+	}
+
+	/**
+	 * This is the best approach
+	 * Make a prefix array and use it to find i and k
+	 * xor of elements from index [i...(j-1)] = prefix[i-1]^prefix[j-1]
+	 * xor of elements from index [j.......k] = prefix[j-1]^prefix[k]
+	 * Above both expression should be equal. which means that prefix[j-1] will cancel out.
+	 * Using 2 nested loops i and k such that 
+	 * prefix[i-1] = prefix[k]
+	 * 
+	 * Complexity:
+	 * Time: O(n^2) nested loops
+	 * Space: O(n) prefix array
+	 * @param array
+	 * @return
+	 */
+	private static int  countTripletDPOptimized(int[] array) {
+		int n = array.length;
+		int[] prefix = new int[n];
+		prefix[0] = array[0];
+		for(int i = 1; i < n; i++) {
+			prefix[i] = prefix[i - 1] ^ array[i];
+		}
+		// xor of elements from index [i...(j-1)] = prefix[i-1]^prefix[j-1]
+		// xor of elements from index [j.......k] = prefix[j-1]^prefix[k]
+		// prefix[i-1] = prefix[k]
+		int count = 0;
+		for(int i = 0; i < n - 1; i++) {
+			for(int k = i; k < n; k++) {
+				if  ((i == 0 && prefix[k] == 0) || (i > 0 && prefix[i - 1] == prefix[k])) {
+					count += (k - i);
+				}
+			}
+		}
+		return count;
 	}
 
 	private static int countTripletOptimized(int[] array) {
