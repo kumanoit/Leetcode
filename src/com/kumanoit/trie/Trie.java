@@ -67,7 +67,7 @@ public class Trie {
         TrieNode node = root;
         for (int i = 0; i < prefix.length(); i++) {
             if (!node.isPresent(prefix.charAt(i))) {
-                node.insert(prefix.charAt(i));
+                return false;
             }
             node = node.get(prefix.charAt(i));
         }
