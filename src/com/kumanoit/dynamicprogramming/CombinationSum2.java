@@ -52,7 +52,7 @@ public class CombinationSum2 {
         System.out.println();
     }
 
-    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    private static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> solution = new ArrayList<>();
         // sorting is much needed to avoid duplication
         Arrays.sort(candidates);
