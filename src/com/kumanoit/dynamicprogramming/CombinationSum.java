@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * https://leetcode.com/problems/combination-sum/submissions/
+ * https://leetcode.com/problems/combination-sum
  * 39. Combination Sum
  *
  * Approach:
