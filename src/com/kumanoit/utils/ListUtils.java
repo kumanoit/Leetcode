@@ -14,6 +14,9 @@ public class ListUtils {
     }
 
     public static <T> void printListOfList(List<List<T>> lists) {
+        if (lists == null) {
+            System.out.println("Empty list.");
+        }
         lists.forEach(list -> {
             printList(list);
             System.out.println();
