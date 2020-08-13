@@ -8,6 +8,9 @@ import java.util.List;
 public class ListUtils {
 
     public static <T> void printList(List<T> list) {
+        if (list == null) {
+            System.out.println("Empty list.");
+        }
         list.forEach(item -> {
             System.out.print(item + ", ");
         });
@@ -15,7 +18,7 @@ public class ListUtils {
 
     public static <T> void printListOfList(List<List<T>> lists) {
         if (lists == null) {
-            System.out.println("Empty list.");
+            System.out.println("Empty list of list.");
         }
         lists.forEach(list -> {
             printList(list);
