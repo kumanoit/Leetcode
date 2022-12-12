@@ -9,7 +9,7 @@ public class TreeUtils {
 
 	/**
 	 * This function creates a tree from given array in level order manner.
-	 * 
+	 *
 	 * @param array
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class TreeUtils {
 
 	/**
 	 * This function will print preorder traversal of a tree
-	 * 
+	 *
 	 * @param root
 	 */
 	public static void preorder(TreeNode root) {
@@ -61,7 +61,7 @@ public class TreeUtils {
 
 	/**
 	 * This function will print inorder traversal of a tree
-	 * 
+	 *
 	 * @param root
 	 */
 	public static void inorder(TreeNode root) {
@@ -75,7 +75,7 @@ public class TreeUtils {
 
 	/**
 	 * This function will print postorder traversal of a tree
-	 * 
+	 *
 	 * @param root
 	 */
 	public static void postorder(TreeNode root) {
@@ -89,7 +89,7 @@ public class TreeUtils {
 
 	/**
 	 * This function will print level order traversal of a tree
-	 * 
+	 *
 	 * @param root
 	 */
 	public static void printLevelOrder(TreeNode root) {
@@ -146,5 +146,17 @@ public class TreeUtils {
 			i++;
 		}
 		return root;
+	}
+
+	public static boolean areTreesIdentical(TreeNode root1, TreeNode root2) {
+		if (root1 == null && root2 == null) {
+			return true;
+		}
+		if (root1 == null || root2 == null) {
+			return false;
+		}
+		return root1.val == root2.val &&
+				areTreesIdentical(root1.left, root2.left) &&
+				areTreesIdentical(root1.right, root2.right);
 	}
 }
